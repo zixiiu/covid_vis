@@ -10,7 +10,7 @@ def send(text, imageFlag , replyId = None):
     # Upload image
     if imageFlag == 'confirmed':
         media = api.media_upload("./Graph/confirmed.png")
-    if imageFlag == 'deaths':
+    elif imageFlag == 'deaths':
         media = api.media_upload("./Graph/deaths.png")
     else:
         raise ValueError('wrong keyword!')
