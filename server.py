@@ -1,7 +1,7 @@
 from bottle import route, run, template
 from Data.getData import getData
 from Graph.getAllGraph import getAllGraph
-from Twitter.sendTweet import send
+import Twitter.sendTweet as tweetAPI
 from datetime import datetime
 import time
 import state
@@ -20,11 +20,13 @@ def update():
 @route('/send')
 def send():
     updated = state.getState('last_updated')
-    tweet = 'Top 10 country, by confirmed case count. Updated '+ str(updated) + ' ET'
+    tweet = 'COVID-19 top 10 country, by confirmed case count. Updated '+ str(updated) + ' ET'
     print('send tweet: ', tweet)
+    tweetAPI.send(tweet, 'confirmed')
 
-    tweet = 'Top 10 country, by death count. Updated '+ str(updated) + ' ET'
+    tweet = 'COVID-19 Top 10 country, by death count. Updated '+ str(updated) + ' ET'
     print('send tweet: ', tweet)
+    tweetAPI.send(tweet, 'deaths')
     now = datetime.now()
     sent =now.strftime("%m/%d/%Y, %H:%M:%S %p")
     state.setState('last_sent', sent)
