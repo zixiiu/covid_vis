@@ -6,7 +6,7 @@ from API_KEY import *
 
 
 def getData():
-    with open('countries.json', 'rb') as fp:
+    with open('Data/countries.json', 'rb') as fp:
         con = json.load(fp)
 
 

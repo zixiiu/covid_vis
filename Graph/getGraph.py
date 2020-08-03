@@ -77,6 +77,8 @@ def getGraph(key = 'confirmed'):
     ax.set_zticks([0, 5, 10, 15])
     add = p.t[1][1] - height*u
     ax.set_zticklabels(np.array([int(i * u * 5 + add)  for i in range(4)]))
+    ax.tick_params(axis="z", labelrotation=90)
+
     ax.view_init(30, -80)
 
     # plt.show()
