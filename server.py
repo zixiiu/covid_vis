@@ -5,12 +5,15 @@ import Twitter.sendTweet as tweetAPI
 from datetime import datetime
 import time
 import state
+import json
 
 
 @route('/update')
 def update():
     print('update!')
-    getData()
+    res = getData()
+    with open('./Data/today.json', 'w') as fp:
+        json.dump(res, fp)
     getAllGraph()
     now = datetime.now()
     updated =now.strftime("%m/%d/%Y, %H:%M:%S %p")

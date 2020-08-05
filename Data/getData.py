@@ -24,8 +24,7 @@ def getData():
         res.append(j)
         time.sleep(1.5)
 
-    with open('today.json', 'w') as fp:
-        json.dump(res, fp)
+
 
     return res
 
