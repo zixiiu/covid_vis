@@ -23,11 +23,11 @@ def update():
 @route('/send')
 def send():
     updated = state.getState('last_updated')
-    tweet = 'COVID-19 top 10 country, by confirmed case count. Updated '+ str(updated) + ' ET'
+    tweet = 'COVID-19 confirmed cases, by country. Updated '+ str(updated) + ' ET'
     print('send tweet: ', tweet)
     tweetAPI.send(tweet, 'confirmed')
 
-    tweet = 'COVID-19 Top 10 country, by death count. Updated '+ str(updated) + ' ET'
+    tweet = 'COVID-19 deaths, by country. Updated '+ str(updated) + ' ET'
     print('send tweet: ', tweet)
     tweetAPI.send(tweet, 'deaths')
     now = datetime.now()
